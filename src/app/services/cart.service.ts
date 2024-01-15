@@ -11,6 +11,11 @@ export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   constructor() {}
+
+  getCart(): Cart {
+    return this.cartSubject.value;
+  }
+
   addToCart(food: Food): void {
     let cartItem = this.cart.items.find((item) => item.food.id === food.id);
     if (cartItem) return;

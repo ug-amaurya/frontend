@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,12 @@ import { TextInputComponent } from './components/partials/text-input/text-input.
 import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './components/page/register/register.component';
+import { LoaderComponent } from './components/partials/loader/loader.component';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { OrderItemListComponent } from './components/partials/order-item-list/order-item-list.component';
+import { MapComponent } from './components/partials/map/map.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,11 @@ import { ToastrModule } from 'ngx-toastr';
     InputValidationComponent,
     TextInputComponent,
     DefaultButtonComponent,
+    RegisterComponent,
+    LoaderComponent,
+    CheckoutComponent,
+    OrderItemListComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +63,9 @@ import { ToastrModule } from 'ngx-toastr';
       newestOnTop: false,
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
