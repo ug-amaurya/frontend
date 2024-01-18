@@ -1,16 +1,16 @@
 header{
     position: relative;
-    background: #5C8374;
+    background: white;
     padding: 0;
-    border-bottom: 1px solid #9EC8B9;
+    border-bottom: 1px solid #e72929;
   }
   
   a{
-    color: #1B4242;
+    color: #af1313;
   }
   
   a:hover{
-    background:#9EC8B9;
+    background:#e72929;
     color: white;
     cursor: pointer;
   }
@@ -22,9 +22,8 @@ header{
   }
   
   a.logo{
-    font-weight: bolder;
+    font-weight: bold;
     padding: 1rem;
-    color:#092635
   }
   
   ul{
@@ -39,7 +38,7 @@ header{
   }
   
   a span{
-    background: #092635;
+    background: #ff4d4d;
     color: white;
     padding: 0.1rem 0.45rem;
     border-radius: 100rem;
@@ -53,7 +52,7 @@ header{
   .menu{
     position:absolute;
     z-index:1;
-    background:#5C8374;
+    background:whitesmoke;
     display: none;
   }
   
